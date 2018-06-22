@@ -1,8 +1,11 @@
 # tictactoe-spring-boot
 Sample Spring Boot Tictactoe Application
 
+## run database
+`docker run --name postgres -e POSTGRES_PASSWORD=admin -e POSTGRES_USER=admin -p 127.0.0.1:5432:5432 -d postgres`  
+
 ## run server
-`mvn install`  
+`mvn install`
 `java -jar target/tictactoe-spring-boot-0.0.1-SNAPSHOT.jar`
 
 ## play simple game
