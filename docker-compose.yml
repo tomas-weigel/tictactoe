@@ -1,0 +1,23 @@
+version: '2'
+services:
+    postgres:
+      image: postgres:latest
+      volumes:
+        - /private/var/lib/postgresql:/var/lib/postgresql
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_USER: admin
+        POSTGRES_PASSWORD: admin
+        POSTGRES_DB: postgres
+
+    tictactoe-spring-boot:
+        build:
+            context: .
+        ports:
+          - "8080:8080"
+        container_name: tictactoe-spring-boot
+        links:
+            - postgres:postgres
+        environment:
+          SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
